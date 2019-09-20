@@ -1,0 +1,39 @@
+{
+  "name": "pikitia",
+  "version": "0.1.0",
+  "description": "Take a screenshot of a Urungi page and convert it to PDF or image",
+  "homepage": "https://github.com/biblibre/pikitia",
+  "bugs": "https://github.com/biblibre/pikitia/issues",
+  "license": "GPL-3.0-or-later",
+  "author": {
+    "name": "BibLibre",
+    "url": "https://www.biblibre.com/"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biblibre/pikitia"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "puppeteer": "^1.20.0",
+    "superagent": "^5.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0"
+  }
+}
