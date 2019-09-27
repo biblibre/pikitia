@@ -2,6 +2,11 @@
 
 Take a screenshot of a [Urungi] page and convert it to PDF or image
 
+## Requirements
+
+- Node.js (>= 8)
+- MongoDB (>= 3.4)
+
 ## Installation
 
 ```
@@ -51,41 +56,87 @@ pm2 start ecosystem.config.js
 
 Pikitia provides the following API endpoints
 
-### `GET /screenshot`
+### `POST /oauth/token`
+
+Pikitia implements OAuth2 authentication mechanism (`client_credentials` grant
+type only). You need to create an access token to use the other endpoints.
+
+To create an access token, you will need to create a
+`client_id`/`client_secret` pair. Clients are stored in MongoDB database. Use
+mongo-shell to connect to it and run the following command (replace CLIENTID and CLIENTSECRET)
+
+```
+db.getCollection('clients').insertOne({ client_id: 'CLIENTID', client_secret: 'CLIENTSECRET' })
+```
+
+Now you can make a POST request to `/oauth/token` with those `client_id` and `client_secret`.
+
+#### Example
+
+```
+POST /oauth/token
+Authorization: Basic Q0xJRU5USUQvQ0xJRU5UU0VDUkVU
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+```
+
+### `POST /screenshot`
 
 It loads the given URL, takes a screenshot of the whole page and convert it to a
 PNG image.
 
-Cookies sent to `/screenshot` will also be sent to the given URL.
+#### Body
 
-#### Parameters
+It should be a JSON object containing the following keys
 
-Name | Usage       | Example
----- | ----------- | --------------------------------------------------------
-url  | URL to load | http://urungi/#/dashboards/view/5d84a17be03fcf2ed8132584
+Name     | Type      | Usage           | Example
+-------- | --------- | -----------     | --------------------------------------------------------
+url      | String    | URL to load     | http://urungi/#/dashboards/view/5d84a17be03fcf2ed8132584
+cookies  | Object    | Cookies to send | { "connect.sid": "sessionId" }
+viewport | Object    | Viewport        | { "width": 1920, "height": 1080 }
 
 #### Example
 
 ```
-GET http://pikitia/screenshot?url=http%3A%2F%2Furungi%2F%23%2Fdashboards%2Fview%2F5d84a17be03fcf2ed8132584
+POST http://pikitia/screenshot
+
+{
+    "url": "http://urungi/#/dashboards/view/5d84a17be03fcf2ed8132584",
+    "cookies": {
+        "connect.sid": "sessionId"
+    },
+    "viewport": {
+        "width": 1920,
+        "height": 1080
+    }
+}
 ```
 
-### `GET /pdf`
+### `POST /pdf`
 
 It loads the given URL and generates a PDF from the loaded page.
 
-Cookies sent to `/pdf` will also be sent to the given URL.
+#### Body
 
-#### Parameters
+It should be a JSON object containing the following keys
 
-Name | Usage       | Example
----- | ----------- | --------------------------------------------------------
-url  | URL to load | http://urungi/#/dashboards/view/5d84a17be03fcf2ed8132584
+Name    | Type      | Usage           | Example
+------- | --------- | -----------     | --------------------------------------------------------
+url     | String    | URL to load     | http://urungi/#/dashboards/view/5d84a17be03fcf2ed8132584
+cookies | Object    | Cookies to send | { "connect.sid": "sessionId" }
 
 #### Example
 
 ```
-GET http://pikitia/pdf?url=http%3A%2F%2Furungi%2F%23%2Fdashboards%2Fview%2F5d84a17be03fcf2ed8132584
+POST http://pikitia/pdf
+
+{
+    "url": "http://urungi/#/dashboards/view/5d84a17be03fcf2ed8132584",
+    "cookies": {
+        "connect.sid": "sessionId"
+    }
+}
 ```
 
 [Urungi]: https://github.com/biblibre/urungi
