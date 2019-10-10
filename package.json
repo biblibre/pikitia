@@ -29,16 +29,16 @@
   ],
   "dependencies": {
     "body-parser": "^1.19.0",
-    "config": "^3.2.2",
+    "config": "^3.2.3",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
-    "mongoose": "^5.7.1",
+    "mongoose": "^5.7.4",
     "morgan": "^1.9.1",
     "oauth2-server": "^3.0.1",
     "puppeteer": "^1.20.0",
     "superagent": "^5.1.0"
   },
   "devDependencies": {
-    "eslint": "^6.4.0"
+    "eslint": "^6.5.1"
   }
 }
