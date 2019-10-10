@@ -12,6 +12,7 @@ async function pdf (url, options) {
 
   const buffer = await page.pdf({
     format: 'A4',
+    scale: 0.5,
     printBackground: true,
   });
 
