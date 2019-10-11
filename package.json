@@ -1,6 +1,6 @@
 {
   "name": "pikitia",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Take a screenshot of a Urungi page and convert it to PDF or image",
   "homepage": "https://github.com/biblibre/pikitia",
   "bugs": "https://github.com/biblibre/pikitia/issues",
