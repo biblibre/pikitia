@@ -125,6 +125,9 @@ Name    | Type      | Usage           | Example
 ------- | --------- | -----------     | --------------------------------------------------------
 url     | String    | URL to load     | http://urungi/#/dashboards/view/5d84a17be03fcf2ed8132584
 cookies | Object    | Cookies to send | { "connect.sid": "sessionId" }
+displayHeaderFooter | Boolean | Display header and footer | true
+headerTemplate | String | HTML template for the print header | `<span class="date"></span>`
+footerTemplate | String | HTML template for the print footer | `<span class="pageNumber"></span>`
 
 #### Example
 
@@ -135,7 +138,10 @@ POST http://pikitia/pdf
     "url": "http://urungi/#/dashboards/view/5d84a17be03fcf2ed8132584",
     "cookies": {
         "connect.sid": "sessionId"
-    }
+    },
+    "displayHeaderFooter": true,
+    "headerTemplate": "<span class="date"></span>",
+    "footerTemplate": "<span class="pageNumber"></span>"
 }
 ```
 

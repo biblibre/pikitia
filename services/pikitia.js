@@ -10,11 +10,16 @@ async function pdf (url, options) {
   const browser = await getBrowser();
   const page = await getPage(browser, url, options);
 
-  const buffer = await page.pdf({
+  const pdfOptions = {
     format: 'A4',
     scale: 0.5,
     printBackground: true,
-  });
+    displayHeaderFooter: options.displayHeaderFooter || false,
+    headerTemplate: options.headerTemplate || '',
+    footerTemplate: options.footerTemplate || '',
+  };
+
+  const buffer = await page.pdf(pdfOptions);
 
   await browser.close();
 
