@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2019-11-05
+
 ### Added
 
 - Added parameters for header and footer in PDF
@@ -24,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Initial release
 
-[Unreleased]: https://github.com/biblibre/pikitia/compare/v0.2.1...master
+[Unreleased]: https://github.com/biblibre/pikitia/compare/v0.3.0...master
+[0.3.0]: https://github.com/biblibre/pikitia/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/biblibre/pikitia/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/biblibre/pikitia/releases/tag/v0.2.0
