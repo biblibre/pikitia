@@ -28,11 +28,17 @@ async function pdf (url, options) {
 
 async function screenshot (url, options) {
   const browser = await getBrowser();
-  const page = await getPage(browser, url, options);
 
-  const buffer = await page.screenshot({
-    fullPage: true,
-  });
+  // Chromium has a hard time taking a screenshot of a tall page. It is most of
+  // the time incomplete.
+  // But, as strange as it sounds, using a viewport wider than the default
+  // (800px) and taking a second screenshot seems to work, so...
+  if (!options.viewport) {
+    options.viewport = { width: 960, height: 540 };
+  }
+  const page = await getPage(browser, url, options);
+  await page.screenshot({ fullPage: true });
+  const buffer = await page.screenshot({ fullPage: true });
 
   await browser.close();
 
@@ -64,7 +70,7 @@ async function getPage(browser, url, options) {
   }
 
   if (options.viewport) {
-    page.setViewport(options.viewport);
+    await page.setViewport(options.viewport);
   }
 
   await page.goto(url, {
