@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Dependencies
+
+- Updated config to 3.2.4
+- Updated mongoose to 5.7.8
+- Updated eslint to 6.6.0
+
 ## [0.3.0] - 2019-11-05
 
 ### Added
