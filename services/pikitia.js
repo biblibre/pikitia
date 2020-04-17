@@ -47,7 +47,7 @@ async function screenshot (url, options) {
 
 function getBrowser() {
   const browserFetcher = puppeteer.createBrowserFetcher();
-  const revInfo = browserFetcher.revisionInfo('686378');
+  const revInfo = browserFetcher.revisionInfo('737027');
 
   const executablePath = path.join(path.dirname(revInfo.executablePath), 'headless_shell');
   const options = {
