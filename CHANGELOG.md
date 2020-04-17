@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Dependencies
 
 - Updated config to 3.3.1
+- Updated cookie-parser to 1.4.5
 - Updated mongoose to 5.7.8
 - Updated eslint to 6.6.0
 
