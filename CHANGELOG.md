@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Updated mongoose to 5.9.9
 - Updated morgan to 1.10.0
 - Updated eslint to 6.8.0
+- Updated superagent to 5.2.2
 
 ## [0.3.0] - 2019-11-05
 
